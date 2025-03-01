@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.4s ease-in-out, padding 0.3s, color 0.4s ease-in-out;
+    background: transparent;
+    color: white; /* Navbar text color */
+}
+
+.navbar.scrolled {
+    background: #3a2f74; 
+    padding: 10px 50px;
+    color: white; /* Navbar text color when scrolled */
+}
+
+.navbar.white {
+    background: white; /* Navbar background color when at the top */
+    color: #3a2f74; /* Navbar text color when at the top */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo {
+    color: inherit; /* Inherit color from navbar */
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+}
+
+.nav-links li {
+    position: relative;
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from navbar */
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+}
+
+.nav-links a:hover {
+    color: #007bff; /* Change hover color to blue */
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 18px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s, padding-left 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #007bff;
+    color: white;
+    padding-left: 24px;
+}
+
+.nav-links li:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from navbar */
+    font-size: 14px;
+    margin-left: 15px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: inherit; /* Inherit background color from navbar */
+}
+
+.auth-buttons a:hover {
+    background-color: #d81b60; /* Darker color on hover */
+    color: white;
+}
+
+.register {
+    background-color: inherit; /* Inherit background color from navbar */
+    color: inherit; /* Inherit text color from navbar */
+}
+
+.register:hover {
+    background-color: #d81b60; /* Darker color on hover */
+    color: white;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #3a2f74;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .dropdown-menu {
+        position: static;
+        display: none;
+        background: #3d2a6d;
+        box-shadow: none;
+        width: 100%;
+    }
+
+    .dropdown-menu a {
+        color: white;
+        padding: 15px;
+        display: block;
+    }
+
+    .nav-links li:hover .dropdown-menu {
+        display: block;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .mobile-auth {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .mobile-auth a {
+        width: 80%;
+        margin: 5px 0;
+        text-align: center;
+    }
+}

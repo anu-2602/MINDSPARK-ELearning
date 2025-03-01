@@ -3,9 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MINDSPARK</title>
+    <title>MindSpark</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/cards.css">
 </head>
 <body>
-    <p>index page of MINDSPARK</p>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="./img/logo.webp" alt="MindSpark Logo" class="logo-img">
+            <div class="logo">MindSpark</div>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="#">Start Here ▼</a>
+                <div class="dropdown-menu">
+                    <a href="#">Getting Started</a>
+                    <a href="#">New User Guide</a>
+                    <a href="#">FAQs</a>
+                </div>
+            </li>
+            <li><a href="#">Student Courses ▼</a>
+                <div class="dropdown-menu">
+                    <a href="#">Beginner Courses</a>
+                    <a href="#">Intermediate Courses</a>
+                    <a href="#">Advanced Courses</a>
+                </div>
+            </li>
+            <li><a href="#">Teacher Training</a></li>
+            <li><a href="#">Library ▼</a>
+                <div class="dropdown-menu">
+                    <a href="#">Mission</a>
+                    <a href="#">Impact Films</a>
+                    <a href="#">Resources</a>
+                </div>
+            </li>
+            <li><a href="#">More ▼</a>
+                <div class="dropdown-menu">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Blog</a>
+                </div>
+            </li>
+            <li>
+        <div class="auth-buttons">
+            <a href="#" class="signin">Sign In</a>
+            <a href="#" class="register">Register</a>
+        </div>
+        </li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <video autoplay muted loop>
+            <source src="./video/student1.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Purposeful Education for a Better Tomorrow</h1>
+            <p>Empowering minds, shaping the future.</p>
+            <a href="#" class="cta">Get Started</a>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+
+
+    <section class="courses-section">
+        <h2>Get Started With MindSpark</h2>
+        <p>Unlimited access to courses, resources, and more →</p>
+        
+        <div class="course-cards">
+            <div class="card">
+                <div class="card-image">
+                    <img src="./img/begginer.jpg" alt="Beginner Courses">
+                </div>
+                <div class="card-content">
+                    <h3>Beginner Courses</h3>
+                    <p>Start your learning journey with our beginner-friendly courses.</p>
+                    <ul>
+                        <li>Introduction to Programming</li>
+                        <li>Basic Mathematics</li>
+                        <li>Fundamentals of Science</li>
+                    </ul>
+                    <a href="#" class="btn">Let's Go</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-image">
+                    <img src="./img/intermediate.jpg" alt="Intermediate Courses">
+                </div>
+                <div class="card-content">
+                    <h3>Intermediate Courses</h3>
+                    <p>Enhance your skills with our intermediate-level courses.</p>
+                    <ul>
+                        <li>Data Structures</li>
+                        <li>Intermediate Algebra</li>
+                        <li>Physics Principles</li>
+                    </ul>
+                    <a href="#" class="btn">Let's Go</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./img/advance.jpg" alt="Advanced Courses">
+                </div>
+                <div class="card-content">
+                    <h3>Advanced Courses</h3>
+                    <p>Master your knowledge with our advanced courses.</p>
+                    <ul>
+                        <li>Algorithm Design</li>
+                        <li>Advanced Calculus</li>
+                        <li>Quantum Mechanics</li>
+                    </ul>
+                    <a href="#" class="btn">Let's Go</a>
+                </div>
+            </div>
+    
+    
+            <div class="card">
+                <div class="card-image">
+                    <img src="./img/challenges.jpg" alt="Challenges">
+                </div>
+                <div class="card-content">
+                    <h3>Challenges</h3>
+                    <p>Take on a real-world challenge & change the world.</p>
+                    <ul>
+                        <li>Hackathons</li>
+                        <li>Problem-Solving Contests</li>
+                        <li>Innovation Challenges</li>
+                    </ul>
+                    <a href="#" class="btn">Let's Go</a>
+                </div>
+            </div>
+    
+            <div class="card">
+                <div class="card-image">
+                    <img src="./img/success.jpg" alt="Success Stories">
+                </div>
+                <div class="card-content">
+                    <h3>Success Stories</h3>
+                    <p>Be inspired by our change-making impact films.</p>
+                    <ul>
+                        <li>Student Achievements</li>
+                        <li>Community Impact</li>
+                        <li>Global Recognition</li>
+                    </ul>
+                    <a href="#" class="btn">Let's Go</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./img/community.avif" alt="Community Projects">
+                </div>
+                <div class="card-content">
+                    <h3>Community Projects</h3>
+                    <p>Join hands with the community to create impactful projects.</p>
+                    <ul>
+                        <li>Environmental Initiatives</li>
+                        <li>Social Welfare Programs</li>
+                        <li>Collaborative Research</li>
+                    </ul>
+                    <a href="#" class="btn">Let's Go</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 </body>
 </html>
