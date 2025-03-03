@@ -68,7 +68,7 @@
 }
 
 .nav-links a:hover {
-    color: #007bff; /* Change hover color to blue */
+    color: #ffcc00; /* Change hover color to blue */
 }
 
 .dropdown-menu {
@@ -95,7 +95,7 @@
 }
 
 .dropdown-menu a:hover {
-    background-color: #007bff;
+    background-color: #ffcc00;
     color: white;
     padding-left: 24px;
 }
@@ -119,6 +119,18 @@
     padding: 8px 15px;
     border-radius: 5px;
     background-color: inherit; /* Inherit background color from navbar */
+}
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid;
+    border-color: inherit;
+    border-radius: 5px;
 }
 
 .auth-buttons a:hover {
@@ -151,7 +163,7 @@
         top: 60px;
         left: 0;
         width: 100%;
-        background-color: #3a2f74;
+        background-color: inherit;
         padding: 20px 0;
         text-align: center;
     }
@@ -185,6 +197,7 @@
 
     .menu-icon {
         display: block;
+        color: inherit;
     }
 
     .mobile-auth {
