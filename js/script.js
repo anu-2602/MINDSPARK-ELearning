@@ -60,3 +60,28 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(nextTestimonial, 2000); // Change testimonial every 5 seconds
     showTestimonial(currentTestimonial);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll(".faq-question");
+    const backButton = document.getElementById("backButton");
+
+    faqItems.forEach(item => {
+        item.addEventListener("click", function () {
+            const faq = this.parentElement;
+            faq.classList.toggle("active");
+
+            // Toggle icon change
+            const icon = this.querySelector(".arrow");
+            if (faq.classList.contains("active")) {
+                icon.textContent = "➖"; // Minus sign when open
+            } else {
+                icon.textContent = "➕"; // Plus sign when closed
+            }
+        });
+    });
+
+    // Back Button Functionality
+    backButton.addEventListener("click", function () {
+        window.history.back(); // Go to previous page
+    });
+});
