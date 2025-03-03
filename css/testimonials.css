@@ -1,0 +1,80 @@
+.testimonials-section {
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.testimonials {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: nowrap;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    padding: 20px 0; /* Add padding to top and bottom */
+}
+
+.testimonials::-webkit-scrollbar {
+    display: none;  /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.testimonial {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: left;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    opacity: 0.5;
+    transform: scale(0.8);
+    border: 2px solid #ddd; /* Add border to testimonial cards */
+}
+
+.testimonial.active {
+    opacity: 1;
+    transform: scale(1.1); /* Adjust scale to ensure visibility */
+    z-index: 1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 2px solid #3a2f74;
+}
+
+.testimonial p {
+    color: #777;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.testimonial h4 {
+    margin-top: 15px;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .testimonial {
+        flex: 0 0 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial {
+        flex: 0 0 100%;
+    }
+
+    .testimonials-section h2 {
+        font-size: 2em;
+    }
+}

@@ -31,3 +31,32 @@ window.addEventListener('scroll', function() {
         navbar.classList.add('white');
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const testimonials = document.querySelectorAll('.testimonial');
+    const testimonialsContainer = document.querySelector('.testimonials');
+    let currentTestimonial = 0;
+
+    function showTestimonial(index) {
+        testimonials.forEach((testimonial, i) => {
+            testimonial.classList.remove('active');
+            if (i === index) {
+                testimonial.classList.add('active');
+            }
+        });
+
+        const offset = testimonials[index].offsetLeft - (testimonialsContainer.clientWidth / 2) + (testimonials[index].clientWidth / 2);
+        testimonialsContainer.scrollTo({
+            left: offset,
+            behavior: 'smooth'
+        });
+    }
+
+    function nextTestimonial() {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    }
+
+    setInterval(nextTestimonial, 2000); // Change testimonial every 5 seconds
+    showTestimonial(currentTestimonial);
+});
