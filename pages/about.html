@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | MindSpark</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #d81b60;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.2s;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: #b31550;
+            transform: scale(1.05);
+        }
+
+        header {
+            background: #3a2f74;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        header span {
+            font-size: 16px;
+            display: block;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .section {
+            padding: 50px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #3a2f74;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .icon {
+            font-size: 40px;
+            color: #d81b60;
+            margin-bottom: 10px;
+        }
+
+        /* Team Section */
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .team-member {
+            width: 280px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            font-size: 20px;
+            color: #3a2f74;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        footer {
+            background: #3a2f74;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 30px;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+</head>
+<body>
+
+    <!-- Back Button -->
+    <a href="./../index.html" class="back-button" onclick="history.back();">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+
+    <header>
+        MindSpark - Empowering Students & Instructors
+        <span>Revolutionizing Online Learning</span>
+    </header>
+
+    <div class="container">
+
+        <div class="section">
+            <i class="icon fas fa-bolt"></i>
+            <h2>Our Mission</h2>
+            <p>At MindSpark, we aim to bridge the gap between students and instructors by providing an interactive and engaging learning platform. We believe in fostering knowledge, creativity, and skill-building through innovation.</p>
+        </div>
+
+        <div class="section">
+            <i class="icon fas fa-lightbulb"></i>
+            <h2>Our Vision</h2>
+            <p>To be a leading online learning space where education meets technology. Our goal is to make high-quality learning accessible and engaging for everyone, empowering the next generation of learners and educators.</p>
+        </div>
+
+        <div class="section">
+            <i class="icon fas fa-users"></i>
+            <h2>Meet Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h3>Jane Doe</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h3>John Smith</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h3>Alice Johnson</h3>
+                    <p>UI/UX Designer</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h3>Michael Lee</h3>
+                    <p>Content Strategist</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h3>Sophia Brown</h3>
+                    <p>Marketing Head</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h3>David Wilson</h3>
+                    <p>Project Manager</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <i class="icon fas fa-handshake"></i>
+            <h2>Why Choose Us?</h2>
+            <p>MindSpark provides an interactive learning experience with expert instructors, modern tools, and a student-friendly approach. Our platform is designed to be intuitive, accessible, and engaging.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2025 MindSpark. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Scroll animation for sections
+        document.addEventListener("scroll", function () {
+            document.querySelectorAll(".section").forEach(section => {
+                if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+                    section.classList.add("visible");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
