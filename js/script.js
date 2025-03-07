@@ -85,3 +85,24 @@ document.addEventListener("DOMContentLoaded", function () {
         window.history.back(); // Go to previous page
     });
 });
+
+        function toggleUserType(userType) {
+            let buttons = document.querySelectorAll('.tabs button');
+            let studentForm = document.getElementById('student-form');
+            let instructorForm = document.getElementById('instructor-form');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            studentForm.classList.remove('active');
+            instructorForm.classList.remove('active');
+
+            if (userType === 'student') {
+                studentForm.classList.add('active');
+                buttons[0].classList.add('active');
+            } else {
+                instructorForm.classList.add('active');
+                buttons[1].classList.add('active');
+            }
+        }
+
+        document.getElementById('student-form').classList.add("active");
