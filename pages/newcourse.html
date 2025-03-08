@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course | E-Learning Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url('https://source.unsplash.com/1600x900/?education,learning') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 100%;
+            max-width: 1000px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #001F3F;
+        }
+
+        .section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .input-group input[type="file"] {
+            padding: 8px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background-color: #001F3F;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #003366;
+        }
+
+        .btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .module {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .add-module-btn {
+            background-color: #001F3F;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .add-module-btn:hover {
+            background-color: #003366;
+        }
+
+        .review-section {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .file-upload-group {
+            margin-bottom: 15px;
+        }
+
+        .file-upload-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .file-upload-group input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-box {
+            border: 2px dashed #ccc;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .file-upload-box:hover {
+            border-color: #001F3F;
+        }
+
+        .file-upload-box.dragover {
+            border-color: #003366;
+            background-color: #f0f8ff;
+        }
+
+        .file-preview {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .file-preview .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .file-preview .file-item button {
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .file-preview .file-item button:hover {
+            background-color: #cc0000;
+        }
+
+        @media (max-width: 768px) {
+            .btn-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Add New Course</h2>
+
+    <!-- Step 1: Course Details -->
+    <div class="section active" id="section1">
+        <div class="input-group">
+            <label>Course Title <span class="required">*</span></label>
+            <input type="text" placeholder="Enter course title" required>
+            <div class="error-message">Course title is required.</div>
+        </div>
+        <div class="input-group">
+            <label>Course Category <span class="required">*</span></label>
+            <select required>
+                <option value="">Select Category</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+            </select>
+            <div class="error-message">Please select a category.</div>
+        </div>
+        <div class="input-group">
+            <label>Course Description <span class="required">*</span></label>
+            <textarea rows="5" placeholder="Enter course description" required></textarea>
+            <div class="error-message">Course description is required.</div>
+        </div>
+        <div class="btn-container">
+            <button class="btn" onclick="nextSection(1)">Next</button>
+        </div>
+    </div>
+
+    <!-- Step 2: Upload Files -->
+    <div class="section" id="section2">
+        <div class="input-group">
+            <label>Video Link (YouTube, Vimeo) <span class="required">*</span></label>
+            <input type="text" placeholder="Enter video link" required>
+            <div class="error-message">Video link is required.</div>
+        </div>
+
+        <!-- PDF Upload -->
+        <div class="file-upload-group">
+            <label>Upload PDF Notes</label>
+            <div class="file-upload-box" id="pdfUploadBox">
+                Drag and drop a PDF file here or click to upload.
+            </div>
+            <input type="file" id="pdfFileInput" accept="application/pdf">
+            <div class="file-preview" id="pdfPreview"></div>
+        </div>
+
+        <!-- Audio Upload -->
+        <div class="file-upload-group">
+            <label>Upload Audio File</label>
+            <div class="file-upload-box" id="audioUploadBox">
+                Drag and drop an audio file here or click to upload.
+            </div>
+            <input type="file" id="audioFileInput" accept="audio/*">
+            <div class="file-preview" id="audioPreview"></div>
+        </div>
+
+        <!-- PPT Upload -->
+        <div class="file-upload-group">
+            <label>Upload PPT File</label>
+            <div class="file-upload-box" id="pptUploadBox">
+                Drag and drop a PPT file here or click to upload.
+            </div>
+            <input type="file" id="pptFileInput" accept=".ppt,.pptx">
+            <div class="file-preview" id="pptPreview"></div>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn" onclick="prevSection(2)">Back</button>
+            <button class="btn" onclick="nextSection(2)">Next</button>
+        </div>
+    </div>
+
+    <!-- Step 3: Add Modules -->
+    <div class="section" id="section3">
+        <h3>Course Modules</h3>
+        <div id="modulesContainer"></div>
+        <button class="add-module-btn" onclick="addModule()">+ Add Module</button>
+        <div class="btn-container">
+            <button class="btn" onclick="prevSection(3)">Back</button>
+            <button class="btn" onclick="nextSection(3)">Next</button>
+        </div>
+    </div>
+
+    <!-- Step 4: Review & Publish -->
+    <div class="section" id="section4">
+        <h3>Review Your Course</h3>
+        <div class="review-section">
+            <p><strong>Course Title:</strong> <span id="reviewTitle"></span></p>
+            <p><strong>Category:</strong> <span id="reviewCategory"></span></p>
+            <p><strong>Description:</strong> <span id="reviewDescription"></span></p>
+            <p><strong>Modules:</strong></p>
+            <div id="reviewModules"></div>
+        </div>
+        <div class="btn-container">
+            <button class="btn" onclick="prevSection(4)">Back</button>
+            <button class="btn" disabled>Publish Course</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentStep = 1;
+    let courseData = {
+        title: '',
+        category: '',
+        description: '',
+        videoLink: '',
+        pdfFile: null,
+        audioFile: null,
+        pptFile: null,
+        modules: []
+    };
+
+    // Multi-step navigation
+    function nextSection(step) {
+        if (!validateSection(step)) return;
+        document.getElementById(`section${step}`).classList.remove('active');
+        document.getElementById(`section${step + 1}`).classList.add('active');
+        updateCourseData();
+    }
+
+    function prevSection(step) {
+        document.getElementById(`section${step}`).classList.remove('active');
+        document.getElementById(`section${step - 1}`).classList.add('active');
+    }
+
+    // Form validation
+    function validateSection(step) {
+        let isValid = true;
+        const inputs = document.querySelectorAll(`#section${step} input, #section${step} select, #section${step} textarea`);
+        inputs.forEach(input => {
+            if (input.required && !input.value.trim()) {
+                isValid = false;
+                input.nextElementSibling.style.display = 'block';
+            } else {
+                input.nextElementSibling.style.display = 'none';
+            }
+        });
+        return isValid;
+    }
+
+    // Update course data
+    function updateCourseData() {
+        courseData.title = document.querySelector('#section1 input[type="text"]').value;
+        courseData.category = document.querySelector('#section1 select').value;
+        courseData.description = document.querySelector('#section1 textarea').value;
+        courseData.videoLink = document.querySelector('#section2 input[type="text"]').value;
+        courseData.pdfFile = document.querySelector('#pdfFileInput').files[0];
+        courseData.audioFile = document.querySelector('#audioFileInput').files[0];
+        courseData.pptFile = document.querySelector('#pptFileInput').files[0];
+
+        const modules = document.querySelectorAll('.module');
+        courseData.modules = Array.from(modules).map(module => ({
+            lessonTitle: module.querySelector('input[type="text"]').value,
+            videoLink: module.querySelector('input[type="text"]').value,
+            pdfFile: module.querySelector('input[type="file"][accept="application/pdf"]').files[0],
+            audioFile: module.querySelector('input[type="file"][accept="audio/*"]').files[0]
+        }));
+
+        // Update review section
+        document.getElementById('reviewTitle').textContent = courseData.title;
+        document.getElementById('reviewCategory').textContent = courseData.category;
+        document.getElementById('reviewDescription').textContent = courseData.description;
+        document.getElementById('reviewModules').innerHTML = courseData.modules.map((module, index) => `
+            <p><strong>Module ${index + 1}:</strong> ${module.lessonTitle}</p>
+        `).join('');
+    }
+
+    // Add module
+    function addModule() {
+        const container = document.getElementById('modulesContainer');
+        const moduleIndex = container.children.length + 1;
+
+        container.innerHTML += `
+        <div class="module">
+            <h4>Module ${moduleIndex}</h4>
+            <input type="text" placeholder="Lesson Title" required>
+            <input type="text" placeholder="Video Link" required>
+            <input type="file" accept="application/pdf">
+            <input type="file" accept="audio/*">
+        </div>`;
+    }
+
+    // File upload functionality
+    function setupFileUpload(uploadBoxId, fileInputId, previewId) {
+        const uploadBox = document.getElementById(uploadBoxId);
+        const fileInput = document.getElementById(fileInputId);
+        const preview = document.getElementById(previewId);
+
+        uploadBox.addEventListener('click', () => fileInput.click());
+        uploadBox.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadBox.classList.add('dragover');
+        });
+        uploadBox.addEventListener('dragleave', () => uploadBox.classList.remove('dragover'));
+        uploadBox.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadBox.classList.remove('dragover');
+            fileInput.files = e.dataTransfer.files;
+            handleFileUpload(fileInput, preview);
+        });
+
+        fileInput.addEventListener('change', () => handleFileUpload(fileInput, preview));
+    }
+
+    function handleFileUpload(fileInput, preview) {
+        const file = fileInput.files[0];
+        if (file) {
+            preview.innerHTML = `
+                <div class="file-item">
+                    <span>${file.name} (${(file.size / 1024).toFixed(2)} KB)</span>
+                    <button onclick="removeFile('${fileInput.id}', '${preview.id}')">Remove</button>
+                </div>
+            `;
+        } else {
+            preview.innerHTML = '';
+        }
+    }
+
+    function removeFile(fileInputId, previewId) {
+        document.getElementById(fileInputId).value = '';
+        document.getElementById(previewId).innerHTML = '';
+    }
+
+    // Initialize file uploads
+    setupFileUpload('pdfUploadBox', 'pdfFileInput', 'pdfPreview');
+    setupFileUpload('audioUploadBox', 'audioFileInput', 'audioPreview');
+    setupFileUpload('pptUploadBox', 'pptFileInput', 'pptPreview');
+</script>
+
+</body>
+</html>
