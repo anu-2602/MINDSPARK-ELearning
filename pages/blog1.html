@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowering Students with Free Learning Resources</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.8;
+        }
+        .header {
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            position: relative;
+        }
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            color: #4b6cb7;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: #4b6cb7;
+            color: white;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, opacity 0.5s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section h2 {
+            color: #182848;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        .section p {
+            font-size: 18px;
+            color: #555;
+        }
+        .section img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+        .section:hover img {
+            transform: scale(1.05);
+        }
+        .video-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .video-container img {
+            width: 100%;
+            max-width: 700px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .video-container img:hover {
+            transform: scale(1.05);
+        }
+        .benefits, .platforms, .impact {
+            background: #eef1f8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .benefits:hover, .platforms:hover, .impact:hover {
+            transform: scale(1.02);
+        }
+        .impact ul li {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .quote {
+            background: #4b6cb7;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-style: italic;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+        .footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background: #182848;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+            .video-container img {
+                height: 250px;
+            }
+            .back-btn {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="javascript:history.back()" class="back-btn">⬅ Back</a>
+        Empowering Students with Free Learning Resources
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>📖 Breaking Barriers in Education</h2>
+            <p>Education is a fundamental right, but millions of students worldwide face financial, geographical, and societal challenges that limit their access to learning. **Free online resources** are helping bridge this gap, allowing students to access quality education from anywhere.</p>
+            <img src="https://source.unsplash.com/900x400/?students,learning" alt="Students Learning">
+        </div>
+
+        <div class="video-container">
+            <h3>🎥 How Free Learning is Changing Lives</h3>
+            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg" onclick="playVideo()" alt="Click to play video">
+            <iframe id="video" src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1" style="display: none;" frameborder="0"></iframe>
+        </div>
+
+        <div class="benefits">
+            <h2>💡 Why Free Learning Resources Matter</h2>
+            <p>Providing free access to education can **transform lives** in the following ways:</p>
+            <ul>
+                <li>📚 Expands knowledge without financial burden</li>
+                <li>🌍 Connects learners globally</li>
+                <li>📱 Encourages self-paced learning</li>
+                <li>🎓 Helps students build career-ready skills</li>
+                <li>🚀 Increases confidence and innovation</li>
+            </ul>
+        </div>
+
+        <div class="platforms">
+            <h2>🚀 Top Free Learning Platforms</h2>
+            <ul>
+                <li><b>📚 <a href="https://www.khanacademy.org/" target="_blank">Khan Academy</a>:</b> Free school subject tutorials.</li>
+                <li><b>🎓 <a href="https://www.coursera.org/" target="_blank">Coursera</a>:</b> University courses at no cost.</li>
+                <li><b>💻 <a href="https://www.edx.org/" target="_blank">edX</a>:</b> Courses from Harvard, MIT, and more.</li>
+            </ul>
+        </div>
+
+        <div class="impact">
+            <h2>🌍 Real-World Impact of Free Education</h2>
+            <ul>
+                <li>📖 **Over 100 million students** have benefited from free courses</li>
+                <li>💼 Increased **job opportunities** and skill development</li>
+                <li>🌱 Educational access in **developing nations** has expanded</li>
+                <li>🖥️ Remote learning became mainstream during **global crises**</li>
+            </ul>
+        </div>
+
+        <div class="quote">
+            "Education is the most powerful weapon which you can use to change the world." – Nelson Mandela
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 MindSpark | Empowering Students Through Knowledge
+    </div>
+
+    <script>
+        window.addEventListener("scroll", function() {
+            document.querySelectorAll(".section").forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+                    el.classList.add("show");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

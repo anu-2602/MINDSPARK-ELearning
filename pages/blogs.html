@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSpark Blog - Free Education for All</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .header span {
+            display: block;
+            font-size: 16px;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 40px auto;
+            display: flex;
+            gap: 40px;
+        }
+
+        .main-content {
+            flex: 3;
+        }
+
+        /* Blog Posts */
+        .blog-post {
+            background: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .blog-post:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .blog-post img {
+            width: 100%;
+            border-radius: 10px;
+            transition: 0.3s ease-in-out;
+        }
+        .blog-post:hover img {
+            transform: scale(1.05);
+        }
+        .blog-post h2 {
+            color: #182848;
+            margin-top: 20px;
+            font-size: 22px;
+        }
+        .blog-post p {
+            font-size: 17px;
+            color: #555;
+            line-height: 1.8;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 18px;
+            background: #4b6cb7;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s ease-in-out;
+        }
+        .read-more:hover {
+            background: #182848;
+            padding: 12px 22px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            right: -15px; /* Moves the sidebar slightly to the right */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .sidebar > * {
+            margin-bottom: 30px; /* Increased space between sections */
+        }
+        .sidebar h3 {
+            color: #182848;
+            border-bottom: 3px solid #4b6cb7;
+            padding-bottom: 8px;
+            font-size: 20px;
+        }
+
+        /* Quotes - Changing Every 3 Sec */
+        .quote-container {
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            font-size: 16px;
+            color: #555;
+            padding: 12px;
+            border-left: 5px solid #4b6cb7;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        /* Success Stories */
+        .success-story-container {
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: #555;
+            padding: 12px;
+            border-left: 5px solid #4b6cb7;
+            transition: opacity 0.6s ease-in-out;
+        }
+        .success-story {
+            background: #f9f9f9;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-size: 15px;
+        }
+
+        /* Recent Posts */
+        .recent-posts {
+            margin-top: 20px;
+        }
+        .recent-post {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #f9f9f9;
+            transition: 0.3s ease-in-out;
+        }
+        .recent-post:hover {
+            background: #eef1f8;
+            transform: scale(1.02);
+        }
+        .recent-post img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            margin-right: 12px;
+            object-fit: cover;
+        }
+        .recent-post a {
+            color: #182848;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+        .recent-post a:hover {
+            color: #4b6cb7;
+            text-decoration: underline;
+        }
+
+        /* Popular Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .tag {
+            background: #4b6cb7;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease-in-out;
+        }
+        .tag:hover {
+            background: #182848;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            margin-top: 20px;
+        }
+        .newsletter input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .newsletter button {
+            width: 100%;
+            padding: 10px;
+            background: #4b6cb7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        .newsletter button:hover {
+            background: #182848;
+        }
+
+        /* Feedback Form */
+        .feedback-form {
+            margin-top: auto;
+        }
+        .feedback-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        .feedback-form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .feedback-form input,
+        .feedback-form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .feedback-form button {
+            padding: 10px;
+            background: #4b6cb7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        .feedback-form button:hover {
+            background: #182848;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        MindSpark Blog - Free Education for All
+        <span>Empowering minds, one lesson at a time.</span>
+    </div>
+
+    <div class="container">
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="blog-post">
+                <img src="https://source.unsplash.com/400x250/?education" alt="Education">
+                <h2>Empowering Students with Free Learning Resources</h2>
+                <p>Education should be accessible to everyone. Discover how free learning resources are making a difference in students' lives worldwide.</p>
+                <a href="./../pages/blog1.html" class="read-more">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="https://source.unsplash.com/400x250/?technology" alt="Technology">
+                <h2>How AI is Transforming Online Learning</h2>
+                <p>AI-powered tools are reshaping education by providing personalized learning experiences, automating administrative tasks, and enhancing student engagement.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="https://source.unsplash.com/400x250/?coding" alt="Coding">
+                <h2>Best Platforms to Learn Programming for Free</h2>
+                <p>Discover top coding platforms with free courses that can help you start your programming journey without spending a dime.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="https://source.unsplash.com/400x250/?science" alt="Science">
+                <h2>10 Must-Read Science Books for Beginners</h2>
+                <p>Explore books that make science fun and easy to understand, perfect for beginners who want to dive into the world of science.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="https://source.unsplash.com/400x250/?career" alt="Career">
+                <h2>How to Build a Successful Career in Tech</h2>
+                <p>Tips and strategies to advance in the tech industry, including networking, skill development, and staying updated with industry trends.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="https://source.unsplash.com/400x250/?motivation" alt="Motivation">
+                <h2>5 Productivity Tips for Students</h2>
+                <p>Improve focus and efficiency with these simple tips that can help students manage their time and tasks effectively.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Educational Quotes</h3>
+            <div class="quote-container" id="quoteBox">
+                “Education is the most powerful weapon which you can use to change the world.” – Nelson Mandela
+            </div>
+
+            <h3>Student Success Stories</h3>
+            <div class="success-story-container" id="successStoryBox">
+                <div class="success-story">
+                    <p><strong>Aarav's Journey:</strong> Aarav, a student from a small town, used free online courses to learn programming and secured a job at a top tech company.</p>
+                </div>
+            </div>
+
+            <h3>Recent Posts</h3>
+            <div class="recent-posts">
+                <div class="recent-post">
+                    <img src="https://source.unsplash.com/60x60/?coding,technology" alt="Post 1">
+                    <a href="#">Learn to Code: Best Free Platforms</a>
+                </div>
+                <div class="recent-post">
+                    <img src="https://source.unsplash.com/60x60/?science,books" alt="Post 2">
+                    <a href="#">Top 10 Science Books for Beginners</a>
+                </div>
+                <div class="recent-post">
+                    <img src="https://source.unsplash.com/60x60/?career,success" alt="Post 3">
+                    <a href="#">How to Build a Successful Career in Tech</a>
+                </div>
+            </div>
+
+            <h3>Popular Tags</h3>
+            <div class="tags">
+                <a href="#" class="tag">Education</a>
+                <a href="#" class="tag">Technology</a>
+                <a href="#" class="tag">Programming</a>
+                <a href="#" class="tag">Science</a>
+                <a href="#" class="tag">Career</a>
+                <a href="#" class="tag">Motivation</a>
+            </div>
+
+            <h3>Subscribe to Newsletter</h3>
+            <div class="newsletter">
+                <p>Stay updated with our latest blog posts and news. Subscribe to our newsletter!</p>
+                <input type="email" placeholder="Enter your email" />
+                <button type="button">Subscribe</button>
+            </div>
+
+            <h3>Feedback Form</h3>
+            <div class="feedback-form">
+                <form action="#" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Changing Quotes Every 3 Sec -->
+    <script>
+        const quotes = [
+            "“Education is the most powerful weapon which you can use to change the world.” – Nelson Mandela",
+            "“The beautiful thing about learning is that no one can take it away from you.” – B.B. King",
+            "“A reader lives a thousand lives before he dies.” – George R.R. Martin",
+            "“Learning never exhausts the mind.” – Leonardo da Vinci",
+            "“The future belongs to those who prepare for it today.” – Malcolm X"
+        ];
+
+        const successStories = [
+            "<strong>Aarav's Journey:</strong> Aarav, a student from a small town, used free online courses to learn programming and secured a job at a top tech company.",
+            "<strong>Priya's Success:</strong> Priya, a high school student, utilized free educational resources to excel in her exams and received a scholarship for higher education.",
+            "<strong>Ravi's Achievement:</strong> Ravi, a self-taught coder, leveraged online tutorials to build a successful freelance career.",
+            "<strong>Anita's Story:</strong> Anita, a single mother, balanced work and study through free online courses and achieved her dream of becoming a teacher."
+        ];
+
+        let quoteIndex = 0;
+        let storyIndex = 0;
+
+        function changeQuote() {
+            quoteIndex = (quoteIndex + 1) % quotes.length;
+            const quoteBox = document.getElementById("quoteBox");
+            quoteBox.style.opacity = 0; 
+            setTimeout(() => {
+                quoteBox.innerHTML = quotes[quoteIndex];
+                quoteBox.style.opacity = 1;
+            }, 600);
+        }
+
+        function changeSuccessStory() {
+            storyIndex = (storyIndex + 1) % successStories.length;
+            const successStoryBox = document.getElementById("successStoryBox");
+            successStoryBox.style.opacity = 0; 
+            setTimeout(() => {
+                successStoryBox.innerHTML = `<div class="success-story">${successStories[storyIndex]}</div>`;
+                successStoryBox.style.opacity = 1;
+            }, 600);
+        }
+
+        setInterval(changeQuote, 3000);
+        setInterval(changeSuccessStory, 3000);
+    </script>
+
+</body>
+</html>
