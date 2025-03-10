@@ -261,18 +261,18 @@
         <!-- Contact Form -->
         <div class="contact-form">
             <h2>Get in Touch with MINDSPARK</h2>
-            <form>
+            <form action="../php/contact-form.php" method="post">
                 <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" placeholder="Interested Subject" required>
+                    <input type="text" name="interest" placeholder="Interested Subject" required>
                 </div>
                 <div class="form-group">
-                    <textarea placeholder="Your Message" required></textarea>
+                    <textarea placeholder="Your Message" name="message" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">SEND MESSAGE</button>
             </form>

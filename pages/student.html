@@ -22,7 +22,7 @@
             <li><a href="#">Start Here ▼</a>
                 <div class="dropdown-menu">
                     <a href="#">Roadmaps</a>
-                    <a href="#">New User Guide</a>
+                    <a href="./../pages/new-user-guide.html">New User Guide</a>
                     <a href="./../pages/faq.html">FAQs</a>
                 </div>
             </li>
@@ -32,7 +32,7 @@
                     <a href="#">Intermediate Courses</a>
                     <a href="#">Advanced Courses</a>
                 </div>
-            </li>
+            </li> 
             <li><a href="#">Teacher Training</a></li>
 
             <li><a href="#">Library ▼</a>
@@ -46,12 +46,13 @@
                 <div class="dropdown-menu">
                     <a href="./../pages/about.html">About Us</a>
                     <a href="./../pages/contact.html">Contact</a>
-                    <a href="#">Blog</a>
+                    <a href="./../pages/blogs.html">Blog</a>
                 </div>
             </li>
             <li>
                 <div class="auth-buttons">
-                    <a href="./../index.html" class="signin">Log Out <i class="fas fa-sign-out-alt"></i></a>
+                    <a href="./../pages/signin.html" class="signin"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                    <a href="./../pages/register.html" class="register"><i class="fas fa-user-plus"></i> Register</a>
                 </div>
             </li>
         </ul>
@@ -235,10 +236,10 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="./../index.html">Home</a></li>
+                        <li><a href="./about.html">About</a></li>
                         <li><a href="#">Courses</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
                     </ul>
                 </div>
 
@@ -250,6 +251,21 @@
                         <li><a href="tel:+918262866596"><i class="fas fa-phone"></i> (+91) 8262866596</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Nashik, India</li>
                     </ul>
+                </div>
+
+                <div class="footer-section feedback">
+                    <h3>Feedback Form</h3>
+                    <div class="feedback-form">
+                        <form action="./../php/feedback.php" method="post">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                            <label for="message">Message:</label>
+                            <input id="message" name="message" rows="4" required>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
                 </div>
 
                 <!-- Social Media -->
@@ -264,7 +280,7 @@
                         <li><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> 
         </div>
 
         <!-- Footer Bottom -->
