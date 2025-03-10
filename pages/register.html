@@ -17,41 +17,41 @@
                 <button onclick="toggleUserType('instructor')">INSTRUCTOR</button>
             </div>
 
-            <form id="student-form" class="active">
+            <form id="student-form" class="active" action="./../php/student.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
-                    <input type="text" placeholder="First Name" required>
-                    <input type="text" placeholder="Last Name" required>
+                    <input type="text" id="fname" name="fname" placeholder="First Name" required>
+                    <input type="text" id="lname" name="lname" placeholder="Last Name" required>
                 </div>
                 <div class="single-input">
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
                 </div>
                 <div class="single-input">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Password" required>
-                    <input type="password" placeholder="Confirm Password" required>
+                    <input type="password" id="pass" name="pass" placeholder="Password" required>
+                    <input type="password" id="pass" placeholder="Confirm Password" required>
                 </div>
                 <button type="submit" class="register-btn">REGISTER</button>
             </form>
 
-            <form id="instructor-form">
+            <form id="instructor-form" action="./../php/instructor.php" method="post" enctype="multipart/form-data">  
                 <div class="input-group">
-                    <input type="text" placeholder="First Name" required>
-                    <input type="text" placeholder="Last Name" required>
+                    <input type="text" id="fname" name="fname" placeholder="First Name" required>
+                    <input type="text" id="lname" name="lname" placeholder="Last Name" required>
                 </div>
                 <div class="single-input">
-                    <input type="text" placeholder="Username" required>
+                    <input type="text" id="uname" name="username" placeholder="Username" required>
                 </div>
                 <div class="single-input">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Password" required>
-                    <input type="password" placeholder="Confirm Password" required>
+                    <input type="password" id="pass" name="pass" placeholder="Password" required>
+                    <input type="password" id="pass" placeholder="Confirm Password" required>
                 </div>
                 <div class="single-input">
-                    <input type="text" placeholder="Field of Expertise" required>
+                    <input type="text" id="Expertise" name="expertise" placeholder="Field of Expertise" required>
                 </div>
                 <button type="submit" class="register-btn">REGISTER</button>
             </form>
