@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course | E-Learning Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./../css/addcourse.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Add New Course</h2>
+        <form id="courseForm" action="./../php/newcourse.php" method="POST" enctype="multipart/form-data">
+            <!-- Step Indicators -->
+            <!-- Step 1: Course Details -->
+            <div class="section active" id="section1">
+                <div class="input-group">
+                    <label>Course Title <span class="required">*</span></label>
+                    <input type="text" name="course_title" id="course_title" placeholder="Enter course title" required>
+                    <div class="error-message">Course title is required.</div>
+                </div>
+                <div class="input-group">
+                    <label>Course Category <span class="required">*</span></label>
+                    <select name="course_category" id="course_category" required>
+                        <option value="">Select Category</option>
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                    </select>
+                    <div class="error-message">Please select a category.</div>
+                </div>
+                <div class="input-group">
+                    <label>Course Description <span class="required">*</span></label>
+                    <textarea name="course_description" id="course_description" rows="5" placeholder="Enter course description" required></textarea>
+                    <div class="error-message">Course description is required.</div>
+                </div>
+                <div class="input-group">
+                    <label>Course Thumbnail Image <span class="required">*</span></label>
+                    <input type="file" name="course_thumbnail" id="course_thumbnail" accept="image/*" required>
+                    <div class="error-message">Thumbnail image is required.</div>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextSection(1)">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Upload Files -->
+            <div class="section" id="section2">
+                <div class="input-group">
+                    <label>Video Link (YouTube, Vimeo) <span class="required">*</span></label>
+                    <input type="text" name="video_link" id="video_link" placeholder="Enter video link" required>
+                    <div class="error-message">Video link is required.</div>
+                </div>
+
+                <!-- PDF Upload -->
+                <div class="file-upload-group">
+                    <label>Upload PDF Notes</label>
+                    <div class="file-upload-box" id="pdfUploadBox">
+                        Drag and drop a PDF file here or click to upload.
+                    </div>
+                    <input type="file" id="pdfFileInput" name="pdfFileInput" accept="application/pdf">
+                    <div class="file-preview" id="pdfPreview"></div>
+                </div>
+
+                <!-- Handwritten Notes Upload -->
+                <div class="file-upload-group">
+                    <label>Upload Handwritten Notes</label>
+                    <div class="file-upload-box" id="handwrittenUploadBox">
+                        Drag and drop handwritten notes here or click to upload.
+                    </div>
+                    <input type="file" id="handwrittenFileInput" name="handwrittenFileInput" accept="image/*">
+                    <div class="file-preview" id="handwrittenPreview"></div>
+                </div>
+
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="prevSection(2)">Back</button>
+                    <button type="button" class="btn" onclick="nextSection(2)">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Review & Publish -->
+            <div class="section" id="section3">
+                <h3>Review Your Course</h3>
+                <div class="review-section">
+                    <p><strong>Course Title:</strong> <span id="reviewTitle"></span></p>
+                    <p><strong>Category:</strong> <span id="reviewCategory"></span></p>
+                    <p><strong>Description:</strong> <span id="reviewDescription"></span></p>
+                    <p><strong>Video Link:</strong> <span id="reviewVideoLink"></span></p>
+                    <p><strong>Thumbnail Image:</strong> <span id="reviewThumbnail"></span></p>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="prevSection(3)">Back</button>
+                    <button type="button submit" class="btn" onclick="submitForm()">Publish Course</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Success Message -->
+            <div class="section" id="section4">
+                <h3>🎉 Course Added Successfully!</h3>
+                <p>Your course has been published and is now available on the platform.</p>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="resetForm()">Add Another Course</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="./../js/addcourse.js"></script>
+</body>
+</html>
