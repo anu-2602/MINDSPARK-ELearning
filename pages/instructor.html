@@ -22,37 +22,31 @@
             <li><a href="#">Start Here ▼</a>
                 <div class="dropdown-menu">
                     <a href="#">Roadmaps</a>
-                    <a href="#">New User Guide</a>
+                    <a href="./../pages/new-user-guide.html">New User Guide</a>
                     <a href="./../pages/faq.html">FAQs</a>
                 </div>
             </li>
             <li><a href="#">Student Courses ▼</a>
                 <div class="dropdown-menu">
-                    <a href="#">Beginner Courses</a>
-                    <a href="#">Intermediate Courses</a>
-                    <a href="#">Advanced Courses</a>
+                    <a href="./newcourse.html">Add Beginner Courses</a>
+                    <a href="./newcourse.html">Add Intermediate Courses</a>
+                    <a href="./newcourse.html">Add Advanced Courses</a>
                 </div>
-            </li>
+            </li> 
             <li><a href="#">Teacher Training</a></li>
 
-            <li><a href="#">Library ▼</a>
-                <div class="dropdown-menu">
-                    <a href="#">E-BOOKS</a>
-                    <a href="#">Audio-Books</a>
-                    <a href="#">Resources</a>
-                </div>
-            </li>
             <li><a href="#">More ▼</a>
                 <div class="dropdown-menu">
                     <a href="./../pages/about.html">About Us</a>
                     <a href="./../pages/contact.html">Contact</a>
-                    <a href="#">Blog</a>
+                    <a href="./../pages/blogs.html">Blog</a>
                 </div>
             </li>
             <li>
-                    <div class="auth-buttons">
-                        <a href="./../index.html" class="signin">Log Out<i class="fas fa-sign-out-alt"></i></a>
-                    </div>
+                <div class="auth-buttons">
+                    <a href="./../index.html" onclick="logout()" class="signin"><i class="fas fa-sign-in-alt"></i> Logout</a>
+                    <a href="#" class="register"><i class="fas fa-user-plus"></i> Profile</a>
+                </div>
             </li>
         </ul>
     </nav>
@@ -62,17 +56,17 @@
             <source src="./../video/student1.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
-            <h1>Purposeful Education for a Better Tomorrow</h1>
-            <p>Empowering minds, shaping the future.</p>
-            <a href="#" class="cta">Get Started</a>
+            <h1>Welcome to Your Instructor Dashboard</h1>
+            <p>Create and manage courses to empower students.</p>
+            <a href="#add-course-form" class="cta">Add New Course</a>
         </div>
     </div>
     <script src="./../js/script.js"></script>
 
 
     <section class="courses-section">
-        <h2>Get Started With MindSpark</h2>
-        <p>Unlimited access to courses, resources, and more →</p>
+        <h2>Start Adding Your Courses</h2>
+        <p>Create and manage courses to help students learn and grow →</p>
         
         <div class="course-cards">
             <div class="card">
@@ -80,14 +74,14 @@
                     <img src="./../img/begginer.jpg" alt="Beginner Courses">
                 </div>
                 <div class="card-content">
-                    <h3>Beginner Courses</h3>
-                    <p>Start your learning journey with our beginner-friendly courses.</p>
+                    <h3>Add Beginner Course</h3>
+                    <p>Start creating beginner-friendly courses to help students begin their learning journey.</p>
                     <ul>
                         <li>Introduction to Programming</li>
                         <li>Basic Mathematics</li>
                         <li>Fundamentals of Science</li>
                     </ul>
-                    <a href="#" class="btn">Let's Go</a>
+                    <a href="./newcourse.html" class="btn">Add Course</a>
                 </div>
             </div>
             
@@ -96,14 +90,14 @@
                     <img src="./../img/intermediate.jpg" alt="Intermediate Courses">
                 </div>
                 <div class="card-content">
-                    <h3>Intermediate Courses</h3>
-                    <p>Enhance your skills with our intermediate-level courses.</p>
+                    <h3>Add Intermediate Course</h3>
+                    <p>Create intermediate-level courses to help students enhance their skills.</p>
                     <ul>
                         <li>Data Structures</li>
                         <li>Intermediate Algebra</li>
                         <li>Physics Principles</li>
                     </ul>
-                    <a href="#" class="btn">Let's Go</a>
+                    <a href="./newcourse.html" class="btn">Add Course</a>
                 </div>
             </div>
 
@@ -112,63 +106,14 @@
                     <img src="./../img/advance.jpg" alt="Advanced Courses">
                 </div>
                 <div class="card-content">
-                    <h3>Advanced Courses</h3>
-                    <p>Master your knowledge with our advanced courses.</p>
+                    <h3>Add Advanced Course</h3>
+                    <p>Develop advanced courses to help students master their knowledge.</p>
                     <ul>
                         <li>Algorithm Design</li>
                         <li>Advanced Calculus</li>
                         <li>Quantum Mechanics</li>
                     </ul>
-                    <a href="#" class="btn">Let's Go</a>
-                </div>
-            </div>
-    
-    
-            <div class="card">
-                <div class="card-image">
-                    <img src="./../img/challenges.jpg" alt="Challenges">
-                </div>
-                <div class="card-content">
-                    <h3>Challenges</h3>
-                    <p>Take on a real-world challenge & change the world.</p>
-                    <ul>
-                        <li>Hackathons</li>
-                        <li>Problem-Solving Contests</li>
-                        <li>Innovation Challenges</li>
-                    </ul>
-                    <a href="#" class="btn">Let's Go</a>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="card-image">
-                    <img src="./../img/success.jpg" alt="Success Stories">
-                </div>
-                <div class="card-content">
-                    <h3>Success Stories</h3>
-                    <p>Be inspired by our change-making impact films.</p>
-                    <ul>
-                        <li>Student Achievements</li>
-                        <li>Community Impact</li>
-                        <li>Global Recognition</li>
-                    </ul>
-                    <a href="#" class="btn">Let's Go</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image">
-                    <img src="./../img/community.avif" alt="Community Projects">
-                </div>
-                <div class="card-content">
-                    <h3>Community Projects</h3>
-                    <p>Join hands with the community to create impactful projects.</p>
-                    <ul>
-                        <li>Environmental Initiatives</li>
-                        <li>Social Welfare Programs</li>
-                        <li>Collaborative Research</li>
-                    </ul>
-                    <a href="#" class="btn">Let's Go</a>
+                    <a href="./newcourse.html" class="btn">Add Course</a>
                 </div>
             </div>
         </div>
@@ -189,10 +134,10 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="./../index.html">Home</a></li>
+                        <li><a href="./about.html">About</a></li>
                         <li><a href="#">Courses</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
                     </ul>
                 </div>
 
@@ -204,6 +149,21 @@
                         <li><a href="tel:+918262866596"><i class="fas fa-phone"></i> (+91) 8262866596</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Nashik, India</li>
                     </ul>
+                </div>
+
+                <div class="footer-section feedback">
+                    <h3>Feedback Form</h3>
+                    <div class="feedback-form">
+                        <form action="./../php/feedback.php" method="post">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                            <label for="message">Message:</label>
+                            <input id="message" name="message" rows="4" required>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
                 </div>
 
                 <!-- Social Media -->
@@ -218,7 +178,7 @@
                         <li><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> 
         </div>
 
         <!-- Footer Bottom -->
