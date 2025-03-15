@@ -24,7 +24,7 @@ $expertise = $_POST['expertise'];
 $sql = "INSERT INTO instructor (fname, lname, username, email, pass, expertise) VALUES ('$fname', '$lname', '$username' , '$email' , '$password', '$expertise')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully. <a href='fetch.php'>View Records</a>";
+    echo "New record created successfully. <a href='instfetch.php'>View Records</a>";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
