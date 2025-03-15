@@ -272,13 +272,14 @@ tr:nth-child(even) {
         <div class="nav-links">
             <a href="studfetch.php">Students</a>
             <a href="instfetch.php">Instructors</a>
-            <a href="#courses">Courses</a>
+            <a href="coursefetch.php">Courses</a>
             <a href="feedbackfetch.php">Feedback</a>
             <a href="contfetch.php">Contact</a>
         </div>
         <div class="admin-profile">
-            <img src="./../img/logo.png" alt="Admin Profile">
-            <div class="admin-name">Admin Name</div>
+            <img src="./../img/icons8-admin.gif" alt="">
+          
+            <div class="admin-name">Admin MS</div>
             <button class="menu-btn" onclick="toggleAdminSidebar()">☰</button>
         </div>
     </header>
@@ -290,8 +291,9 @@ tr:nth-child(even) {
 
         <!-- Admin Profile at Top -->
         <div class="sidebar-profile">
-            <img src="./../img/logo.png" alt="Admin Profile">
-            <div class="admin-name">Admin Name</div>
+        <img src="./../img/icons8-admin.gif" alt="">
+          
+            <div class="admin-name">Mindspark</div>
         </div>
 
         <!-- Admin Details -->

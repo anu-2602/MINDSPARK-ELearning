@@ -22,7 +22,7 @@ $message = $_POST['message'];
 $sql = "INSERT INTO contact (name, email, interest, message) VALUES ('$name', '$email' ,'$Interested_Subject' ,'$message')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully. <a href='fetch.php'>View Records</a>";
+    echo "New record created successfully. <a href='contactfetch.php'>View Records</a>";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

@@ -23,7 +23,7 @@ $password = $_POST['pass'];
 $sql = "INSERT INTO student (fname, lname, username, email, pass) VALUES ('$fname', '$lname', '$username' , '$email' , '$password')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully. <a href='fetch.php'>View Records</a>";
+    echo "New record created successfully. <a href='studfetch.php'>View Records</a>";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

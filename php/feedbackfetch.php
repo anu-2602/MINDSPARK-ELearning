@@ -325,7 +325,7 @@ tr:nth-child(even) {
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['message']; ?></td>
                         
-                        <td><a href="view.php?id=<?php echo $row['id']; ?>">View</a></td>
+                        <td><a href="fedview.php?id=<?php echo $row['id']; ?>">View</a></td>
                     </tr>
                 <?php endwhile; ?>
             <?php else: ?>
