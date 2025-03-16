@@ -21,7 +21,7 @@ $message = $_POST['message'];
 $sql = "INSERT INTO feedback (name, email, message) VALUES ('$name', '$email' , '$message')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully. <a href='fetch.php'>View Records</a>";
+    echo "New record created successfully. <a href='feedbackfetch.php'>View Records</a>";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

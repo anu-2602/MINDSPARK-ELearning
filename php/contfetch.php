@@ -276,7 +276,7 @@ tr:nth-child(even) {
         <div class="nav-links">
             <a href="studfetch.php">Students</a>
             <a href="instfetch.php">Instructors</a>
-            <a href="#courses">Courses</a>
+            <a href="coursefetch.php">Courses</a>
             <a href="feedbackfetch.php">Feedback</a>
             <a href="contfetch.php">Contact</a>
         </div>
@@ -330,7 +330,7 @@ tr:nth-child(even) {
                         <td><?php echo $row['message']; ?></td>
                         <td><?php echo $row['interest']; ?></td>
                         
-                        <td><a href="view.php?id=<?php echo $row['id']; ?>">View</a></td>
+                        <td><a href="cntview.php?id=<?php echo $row['id']; ?>">View</a></td>
                     </tr>
                 <?php endwhile; ?>
             <?php else: ?>

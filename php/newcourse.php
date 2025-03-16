@@ -24,24 +24,40 @@ $handwrittenFileInput = $_FILES['handwrittenFileInput']['name'];
 // ✅ Set the correct upload path
 $target_dir = __DIR__ . "/../uploads/";
 
+// Function to handle file upload
+function uploadFile($file, $target_dir) {
+    $target_file = $target_dir . basename($file['name']);
+    if (move_uploaded_file($file["tmp_name"], $target_file)) {
+        return $target_file;
+    } else {
+        return false;
+    }
+}
+
 // ✅ Move course thumbnail to uploads folder
-$target_file_thumbnail = $target_dir . basename($_FILES['course_thumbnail']['name']);
-move_uploaded_file($_FILES["course_thumbnail"]["tmp_name"], $target_file_thumbnail);
+$target_file_thumbnail = uploadFile($_FILES['course_thumbnail'], $target_dir);
+if (!$target_file_thumbnail) {
+    die("Error uploading course thumbnail.");
+}
 
 // ✅ Move PDF file to uploads folder
-$target_file_pdf = $target_dir . basename($_FILES['pdfFileInput']['name']);
-move_uploaded_file($_FILES["pdfFileInput"]["tmp_name"], $target_file_pdf);
+$target_file_pdf = uploadFile($_FILES['pdfFileInput'], $target_dir);
+if (!$target_file_pdf) {
+    die("Error uploading PDF file.");
+}
 
 // ✅ Move handwritten notes to uploads folder
-$target_file_handwritten = $target_dir . basename($_FILES['handwrittenFileInput']['name']);
-move_uploaded_file($_FILES["handwrittenFileInput"]["tmp_name"], $target_file_handwritten);
+$target_file_handwritten = uploadFile($_FILES['handwrittenFileInput'], $target_dir);
+if (!$target_file_handwritten) {
+    die("Error uploading handwritten notes.");
+}
 
 // ✅ Insert data into database (with file paths)
 $sql = "INSERT INTO addcourse (course_title, course_category, course_description, course_thumbnail, video_link, pdfFileInput, handwrittenFileInput) 
-        VALUES ('$course_title', '$course_category', '$course_description' , '$course_thumbnail' , '$video_link' , '$pdfFileInput', '$handwrittenFileInput')";
+        VALUES ('$course_title', '$course_category', '$course_description', '$course_thumbnail', '$video_link', '$pdfFileInput', '$handwrittenFileInput')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully. <a href='fetch.php'>View Records</a>";
+    echo "New record created successfully. <a href='coursefetch.php'>View Records</a>";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
