@@ -390,7 +390,7 @@ tr:nth-child(even) {
         <div class="nav-links">
             <a href="studfetch.php">Students</a>
             <a href="instfetch.php">Instructors</a>
-            <a href="#courses">Courses</a>
+            <a href="coursefetch.php">Courses</a>
             <a href="feedbackfetch.php">Feedback</a>
             <a href="contfetch.php">Contact</a>
         </div>
