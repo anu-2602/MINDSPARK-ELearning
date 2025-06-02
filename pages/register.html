@@ -17,42 +17,44 @@
                 <button onclick="toggleUserType('instructor')">INSTRUCTOR</button>
             </div>
 
-            <form id="student-form" class="active" action="./../php/student.php" method="post" enctype="multipart/form-data">
+            <form id="student-form" class="active" action="./../php/student.php" method="post" enctype="multipart/form-data" novalidate>
                 <div class="input-group">
-                    <input type="text" id="fname" name="fname" placeholder="First Name" required>
-                    <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+                    <input type="text" id="student-fname" name="fname" placeholder="First Name" required>
+                    <input type="text" id="student-lname" name="lname" placeholder="Last Name" required>
                 </div>
                 <div class="single-input">
-                    <input type="text" id="username" name="username" placeholder="Username" required>
+                    <input type="text" id="student-username" name="username" placeholder="Username" required>
                 </div>
                 <div class="single-input">
-                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <input type="email" id="student-email" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="pass" name="pass" placeholder="Password" required>
-                    <input type="password" id="pass" placeholder="Confirm Password" required>
+                    <input type="password" id="student-pass" name="pass" placeholder="Password" required>
+                    <input type="password" id="student-confirm-pass" placeholder="Confirm Password" required>
                 </div>
+                <div id="student-error" class="error-message" style="color:red;display:none;"></div>
                 <button type="submit" class="register-btn">REGISTER</button>
             </form>
 
-            <form id="instructor-form" action="./../php/instructor.php" method="post" enctype="multipart/form-data">  
+            <form id="instructor-form" action="./../php/instructor.php" method="post" enctype="multipart/form-data" novalidate>
                 <div class="input-group">
-                    <input type="text" id="fname" name="fname" placeholder="First Name" required>
-                    <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+                    <input type="text" id="instructor-fname" name="fname" placeholder="First Name" required>
+                    <input type="text" id="instructor-lname" name="lname" placeholder="Last Name" required>
                 </div>
                 <div class="single-input">
-                    <input type="text" id="uname" name="username" placeholder="Username" required>
+                    <input type="text" id="instructor-username" name="username" placeholder="Username" required>
                 </div>
                 <div class="single-input">
-                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <input type="email" id="instructor-email" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="pass" name="pass" placeholder="Password" required>
-                    <input type="password" id="pass" placeholder="Confirm Password" required>
+                    <input type="password" id="instructor-pass" name="pass" placeholder="Password" required>
+                    <input type="password" id="instructor-confirm-pass" placeholder="Confirm Password" required>
                 </div>
                 <div class="single-input">
-                    <input type="text" id="Expertise" name="expertise" placeholder="Field of Expertise" required>
+                    <input type="text" id="instructor-expertise" name="expertise" placeholder="Field of Expertise" required>
                 </div>
+                <div id="instructor-error" class="error-message" style="color:red;display:none;"></div>
                 <button type="submit" class="register-btn">REGISTER</button>
             </form>
 
@@ -61,6 +63,70 @@
     </div>
 
     <script src="./../js/script.js"></script>
+    <script>
+    // Registration form validation
+    function validateEmail(email) {
+        // Simple email regex
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
 
+    function showError(formType, message) {
+        const errorDiv = document.getElementById(formType + '-error');
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+    }
+
+    function clearError(formType) {
+        const errorDiv = document.getElementById(formType + '-error');
+        errorDiv.textContent = '';
+        errorDiv.style.display = 'none';
+    }
+
+    document.getElementById('student-form').addEventListener('submit', function(e) {
+        clearError('student');
+        const pass = document.getElementById('student-pass').value;
+        const confirmPass = document.getElementById('student-confirm-pass').value;
+        const email = document.getElementById('student-email').value;
+
+        if (!validateEmail(email)) {
+            showError('student', 'Please enter a valid email address.');
+            e.preventDefault();
+            return;
+        }
+        if (pass.length < 6) {
+            showError('student', 'Password must be at least 6 characters.');
+            e.preventDefault();
+            return;
+        }
+        if (pass !== confirmPass) {
+            showError('student', 'Passwords do not match.');
+            e.preventDefault();
+            return;
+        }
+    });
+
+    document.getElementById('instructor-form').addEventListener('submit', function(e) {
+        clearError('instructor');
+        const pass = document.getElementById('instructor-pass').value;
+        const confirmPass = document.getElementById('instructor-confirm-pass').value;
+        const email = document.getElementById('instructor-email').value;
+
+        if (!validateEmail(email)) {
+            showError('instructor', 'Please enter a valid email address.');
+            e.preventDefault();
+            return;
+        }
+        if (pass.length < 6) {
+            showError('instructor', 'Password must be at least 6 characters.');
+            e.preventDefault();
+            return;
+        }
+        if (pass !== confirmPass) {
+            showError('instructor', 'Passwords do not match.');
+            e.preventDefault();
+            return;
+        }
+    });
+    </script>
 </body>
 </html>
